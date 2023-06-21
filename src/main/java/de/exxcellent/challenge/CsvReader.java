@@ -4,7 +4,6 @@ import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.CSVReaderHeaderAwareBuilder;
 
 import com.opencsv.exceptions.CsvValidationException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,7 +16,7 @@ import java.util.Map;
  * A bett
  *
  */
-public class CsvReader implements ICSVReader{
+public class CsvReader implements IReader {
 
   private CSVReaderHeaderAware reader;
   public CsvReader(String path) throws IOException {
