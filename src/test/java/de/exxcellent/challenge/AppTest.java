@@ -11,13 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class AppTest {
 
-    private String successLabel = "not successful";
-
-    @BeforeEach
-    void setUp() {
-        successLabel = "successful";
-    }
-
     @Test
     void testFootball() {
         var football_path =  "football.csv";
@@ -25,7 +18,7 @@ class AppTest {
         String expected = "Aston_Villa";
 
         String successLabel = App.getSmallestDifferenceTeam(football_path);
-        assertEquals("Aston_Villa", successLabel, "My expectations were not met");
+        assertEquals(expected, successLabel, "My expectations were not met");
     }
 
     @Test
@@ -35,7 +28,7 @@ class AppTest {
         String expected = "14";
 
         String successLabel = App.getSmallestDifferenceDay(football_path);
-        assertEquals("14", successLabel, "My expectations were not met");
+        assertEquals(expected, successLabel, "My expectations were not met");
     }
 
     @Test

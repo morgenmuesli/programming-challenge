@@ -29,8 +29,8 @@ public final class App {
     Map<String, String> parsedArguments = new HashMap<>();
     String currentKey = null;
 
-    for (int i = 0; i < args.length; i++) {
-      String arg = args[i].trim();
+    for (String s : args) {
+      String arg = s.trim();
 
       if (arg.startsWith("--")) {
         // Remove the leading "--" to get the argument key

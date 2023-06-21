@@ -8,7 +8,7 @@ import java.util.Map;
  * This ensures that you can use different csv readers if opencsv will not be maintained in the future
  */
 public interface IReader {
-  public Map<String, String> readLine() throws IOException;
+  Map<String, String> readLine() throws IOException;
 
-  public List<Map<String, String>> readAll() throws IOException;
+  List<Map<String, String>> readAll() throws IOException;
 }

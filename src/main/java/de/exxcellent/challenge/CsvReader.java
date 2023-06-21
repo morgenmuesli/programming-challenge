@@ -32,7 +32,7 @@ public class CsvReader implements IReader {
 
   /**
    * Reads a line of a csv File
-   * @throws IOException
+   * @throws IOException if csv can't be parsed
    */
   public Map<String, String> readLine() throws IOException {
     try {
@@ -47,7 +47,7 @@ public class CsvReader implements IReader {
    * reads and collects all lines of an csv file.
    * Be careful because
    * @return an array of all hashmaps
-   * @throws IOException
+   * @throws IOException if csv can't be parsed
    */
   public List<Map<String, String>> readAll() throws IOException {
     ArrayList<Map<String, String>> records = new ArrayList<>();
