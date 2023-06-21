@@ -1,15 +1,14 @@
 package de.exxcellent.challenge;
 
-import com.opencsv.CSVIterator;
 import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.CSVReaderHeaderAwareBuilder;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.exceptions.CsvException;
+
 import com.opencsv.exceptions.CsvValidationException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +21,11 @@ public class CsvReader implements ICSVReader{
 
   private CSVReaderHeaderAware reader;
   public CsvReader(String path) throws IOException {
-    this.reader = new CSVReaderHeaderAwareBuilder(new FileReader(path)).build();
+    InputStream inputStream = CsvReader.class.getClassLoader().getResourceAsStream(path);
+    if (inputStream == null) {
+      throw new IOException("File not found: " + path);
+    }
+    this.reader = new CSVReaderHeaderAwareBuilder(new InputStreamReader(inputStream)).build();
 
 
 
@@ -30,8 +33,6 @@ public class CsvReader implements ICSVReader{
 
   /**
    * Reads a line of a csv File
-   * @return
-   * @throws CsvValidationException
    * @throws IOException
    */
   public Map<String, String> readLine() throws IOException {
