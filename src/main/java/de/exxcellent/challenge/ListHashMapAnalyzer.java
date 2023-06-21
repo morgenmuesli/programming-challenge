@@ -42,7 +42,7 @@ public class ListHashMapAnalyzer {
    * @param value_columns contains an array with 2 elements which represents the relevant columns for measuring the distance
    * @return the index value for the best line
    */
-  private String getValueWithSmallestDistance(List<HashMap<String, String>> dataframe, String index_column, String[] value_columns) {
+  public String getValueWithSmallestDistance(List<HashMap<String, String>> dataframe, String index_column, String[] value_columns) {
     String bestResult = null;
     double minDistance = Double.MAX_VALUE;
     for (var line: dataframe) {
@@ -55,5 +55,7 @@ public class ListHashMapAnalyzer {
     return bestResult;
 
   }
+
+
 
 }
