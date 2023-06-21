@@ -78,6 +78,8 @@ class DatasetAnalyzerTest {
           relevantColumns);
       String expected_team = "Aston_Villa";
 
+      assertEquals(expected_team, winning_team, "Teams are not equal");
+
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
