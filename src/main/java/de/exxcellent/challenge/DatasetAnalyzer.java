@@ -47,8 +47,12 @@ public class DatasetAnalyzer {
   public String getValueWithSmallestDistance(List<HashMap<String, String>> dataframe, String index_column, String[] value_columns) {
     String bestResult = null;
     double minDistance = Double.MAX_VALUE;
+
+    //iterate through dataframe
     for (var line: dataframe) {
       double distance = getDistance(line, value_columns);
+
+      //replaces smallest distance
       if(distance < minDistance) {
         minDistance = distance;
         bestResult = line.get(index_column);
@@ -65,14 +69,17 @@ public class DatasetAnalyzer {
    * @param value_columns are the names for the relevant column names
    * @return the index value for the smallest distance
    */
-  public static String getValueWithSmallestDistance(ICSVReader datareader, String index_column, String[] value_columns)
+  public static String getValueWithSmallestDistance(IReader datareader, String index_column, String[] value_columns)
       throws IOException {
     String bestResult = null;
     double minDistance = Double.MAX_VALUE;
     Map<String, String> line;
 
+    //iterate using datareader
     while ((line = datareader.readLine()) != null) {
       double distance = getDistance((HashMap<String, String>) line, value_columns);
+
+      // replaces distance
       if(distance < minDistance) {
         minDistance = distance;
         bestResult = line.get(index_column);
