@@ -11,18 +11,7 @@ import org.junit.jupiter.api.Test;
 
 class DatasetAnalyzerTest {
 
-  ArrayList<HashMap<String, String>> content;
 
-  @BeforeEach
-  void setUp() {
-
-    content = new ArrayList<>();
-
-
-
-
-
-  }
 
   @Test
   void getDistance() {
@@ -60,10 +49,6 @@ class DatasetAnalyzerTest {
 
   }
 
-  @Test
-  void testGetValueWithSmallestDistanceWithHashMap() {
-
-  }
 
   @Test
   void testGetValueWithSmallestDistanceWithReader() {

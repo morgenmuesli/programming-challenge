@@ -24,7 +24,7 @@ class AppTest {
 
         String expected = "Aston_Villa";
 
-        String successLabel = App.getSmallestDifferenceDay(football_path);
+        String successLabel = App.getSmallestDifferenceTeam(football_path);
         assertEquals("Aston_Villa", successLabel, "My expectations were not met");
     }
 
@@ -50,7 +50,7 @@ class AppTest {
 
     @Test
     void runBoth() {
-        App.main("--football", "football.csv", "--football", "weather.csv");
+        App.main("--football", "football.csv", "--weather", "weather.csv");
     }
 
 }
