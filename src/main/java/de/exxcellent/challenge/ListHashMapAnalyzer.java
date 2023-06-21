@@ -1,7 +1,10 @@
 package de.exxcellent.challenge;
 
+import java.io.IOException;
+import java.io.StreamCorruptedException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ListHashMapAnalyzer {
 
@@ -54,6 +57,29 @@ public class ListHashMapAnalyzer {
     }
     return bestResult;
 
+  }
+
+  /**
+   * memory efficient calculation for value with smallest distance between two given column values
+   * @param datareader is a csv reader
+   * @param index_column is the column name for index
+   * @param value_columns are the names for the relevant column names
+   * @return the index value for the smallest distance
+   */
+  public static String getValueWithSmallestDistance(ICSVReader datareader, String index_column, String[] value_columns)
+      throws IOException {
+    String bestResult = null;
+    double minDistance = Double.MAX_VALUE;
+    Map<String, String> line;
+
+    while ((line = datareader.readLine()) != null) {
+      double distance = getDistance((HashMap<String, String>) line, value_columns);
+      if(distance < minDistance) {
+        minDistance = distance;
+        bestResult = line.get(index_column);
+      }
+    }
+    return bestResult;
   }
 
 
