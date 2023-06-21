@@ -1,12 +1,11 @@
 package de.exxcellent.challenge;
 
 import java.io.IOException;
-import java.io.StreamCorruptedException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ListHashMapAnalyzer {
+public class DatasetAnalyzer {
 
   /**
    * gets a hashmap which represents a line of a dataframe and calculates the distance between two values
@@ -27,7 +26,7 @@ public class ListHashMapAnalyzer {
       }
       values[i] = Double.parseDouble(line.get(columnName));
     }
-    return ListHashMapAnalyzer.calcDistance(values[0], values[1]);
+    return DatasetAnalyzer.calcDistance(values[0], values[1]);
   }
 
   /**

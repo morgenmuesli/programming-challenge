@@ -26,14 +26,14 @@ public final class App {
             ICSVReader goalReader = new CsvReader(FOOTBALL_PATH);
 
 
-            String dayWithSmallestTempSpread = ListHashMapAnalyzer.getValueWithSmallestDistance(
+            String dayWithSmallestTempSpread = DatasetAnalyzer.getValueWithSmallestDistance(
                 weatherReader, "Day",
                 new String[]{"MxT", "MnT"});
 
             System.out.printf("Day with smallest temperature spread : %s%n",
                 dayWithSmallestTempSpread);
 
-            String teamWithSmallestGoalSpread = ListHashMapAnalyzer.getValueWithSmallestDistance(
+            String teamWithSmallestGoalSpread = DatasetAnalyzer.getValueWithSmallestDistance(
                 goalReader, "Team",
                 new String[]{"Goals", "Goals Allowed"});
             System.out.printf("Team with smallest goal spread       : %s%n",
